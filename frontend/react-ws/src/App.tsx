@@ -24,6 +24,10 @@ function App() {
       console.error('WebSocket error:',error)
     }
     setSocket(socket)
+
+    return ()=>{
+      socket.close()
+    }
   },[])
 
   if(!socket){
@@ -40,7 +44,7 @@ function App() {
     }}>Send
     </button>
     {message}
-    
+     
     </>
   )
 }
